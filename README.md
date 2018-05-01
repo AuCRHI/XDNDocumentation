@@ -1,4 +1,4 @@
-# XDNDocumentation
+# XDN Documentation
 How To
 ---
 # This file is licensed under the MIT License (MIT) available on
@@ -7,58 +7,23 @@ How To
 layout: base-core
 lang: en
 id: full-node
-title: "Running A Full Node - Bitcoin"
+title: "Building - XDN"
 breadcrumbs:
   - bitcoin
-  - bcc
-  - bcc documentation
-  - Bandwidth sharing
----
+  - XDN
+  - XDN documentation
+  - Digital Note ---
 
 <!-- Variable assignment
 
 {% capture installFinished %}
-You have now completed installing Bitcoin Core.  If you have any questions, please ask in one of Bitcoin's many [communities](/en/community), such as [Bitcoin StackExchange](https://bitcoin.stackexchange.com/), [BitcoinTalk technical support](https://bitcointalk.org/index.php?board=4.0), or the [#bitcoin](https://webchat.freenode.net/?channels=bitcoin&uio=d4) IRC chatroom on Freenode.
+You have now completed installing XDN Core. If you have any questions, please ask in XDN's support at [Discord](https://discordapp.com/channels/421604235193483275/430393994875240468) 
 
-To support the Bitcoin network, you also need to allow incoming
-connections. Please read the [Network
-Configuration](#network-configuration) section for details.
-{% endcapture %}
-
-{% capture verifyReleaseSignatures %}
-<div class="box" markdown="1">
-*Optional: Verify the release signatures*
-
-If you know how to use PGP, you should also click the *Verify Release
-Signatures* link on the download page to download a signed list of SHA256
-file hashes. The 0.11 and later releases are signed by [Wladimir J. van
-der Laan's releases key](/laanwj-releases.asc) with the fingerprint:
-
-    01EA 5486 DE18 A882 D4C2  6845 90C8 019E 36C2 E964
-
-Earlier releases were signed by [Wladimir J. van der Laan's regular
-key](/laanwj.asc). That key's fingerprint is:
-
-    71A3 B167 3540 5025 D447  E8F2 7481 0B01 2346 C9A6
-
-Even earlier releases were signed by [Gavin Andresen's
-key](/gavinandresen.asc). His primary key's fingerprint is:
-
-    2664 6D99 CBAE C9B8 1982  EF60 29D9 EE6B 1FC7 30C1
-
-You should verify these keys belong to their owners using the web of
-trust or other trustworthy means. Then use PGP to verify the signature
-on the release signatures file. Finally, use PGP or another utility to
-compute the SHA256 hash of the archive you downloaded, and ensure the
-computed hash matches the hash listed in the verified release
-signatures file.
-
-</div>
 {% endcapture %}
 
 
 {% capture start_up_and_recommended_commands %}
-Note: it may take up to several minutes for Bitcoin Core to start,
+Note: it may take up to several minutes for XDN DigitalNoteWallet and Core to start,
 during which it will display the following message whenever you use
 `bitcoin-cli`:
 
@@ -75,135 +40,39 @@ interaction with your node:
 
 
 {% capture complete_list_of_commands_and_ibd %}
-A complete list of commands is available in the [Bitcoin.org developer
-reference](/en/developer-reference#rpc-quick-reference).
 
-When Bitcoin Core daemon first starts, it will begin to download the block
+When XDN Core daemon first starts, it will begin to download the block
 chain. This step will take at least several days, and it may take much more time
 on a slow Internet connection or with a slow computer. During the download,
-Bitcoin Core will use a significant part of your connection bandwidth. You can
-stop Bitcoin Core at any time using the `stop` command; it will resume from the
+XDN Core will use a significant part of your connection bandwidth. You can
+stop XDN Core at any time using the `stop` command; it will resume from the
 point where it stopped the next time you start it.
 {% endcapture %}
 
 
 {% capture windows_shutdown_warning %}
 **Warning:** to prevent data corruption, do not force shutdown your
-computer from the Windows shutdown screen when you have Bitcoin
-Core running.
+computer from the Windows shutdown screen when you have XDN Core running.
 {% endcapture %}
 
--->
-
-# Running A Full Node
-
-<p class="summary">Support the Bitcoin network by running your own full node</p>
-
-<div markdown="1" id="toc" class="toc"><div markdown="1">
-
-* Table of contents
-{:toc}
-
-<ul class="reportissue"><li><a href="https://github.com/bitcoin-dot-org/bitcoin.org/issues/new">Report An Issue</a></li></ul>
-<ul class="editsource"><li><a href="https://github.com/bitcoin-dot-org/bitcoin.org/tree/master/en/full-node.md">Edit On GitHub</a></li></ul>
-
-</div></div>
-<div markdown="1" class="toccontent">
-
-## What Is A Full Node?
-
-A full node is a program that fully validates transactions and blocks.
-Almost all full nodes also help the network by accepting transactions
-and blocks from other full nodes, validating those transactions and
-blocks, and then relaying them to further full nodes.
-
-Most full nodes also serve lightweight clients by allowing them to
-transmit their transactions to the network and by notifying them when a
-transaction affects their wallet. If not enough nodes perform this
-function, clients won't be able to connect through the peer-to-peer
-network---they'll have to use centralized services instead.
-
-Many people and organizations volunteer to run full nodes using spare
-computing and bandwidth resources---but more volunteers are needed to
-allow Bitcoin to continue to grow.  This document describes how you can
-help and what helping will cost you.
-
-## Costs And Warnings
-
-Running a Bitcoin full node comes with certain costs and can expose you
-to certain risks. This section will explain those costs and risks so you
-can decide whether you're able to help the network.
-
-### Special Cases
-
-Miners, businesses, and privacy-conscious users rely on particular
-behavior from the full nodes they use, so they will often run their own
-full nodes and take special safety precautions. This document does not
-cover those precautions---it only describes running a full node to help
-support the Bitcoin network in general.
-
-Please seek out assistance in the [community](/en/community) if you need help
-setting up your full node correctly to handle high-value and privacy-sensitive
-tasks. Do your own diligence to ensure who you get help from is ethical,
-reputable and qualified to assist you.
 
 ### Secure Your Wallet
 
 It's possible and safe to run a full node to support the network and use
-its wallet to store your bitcoins, but you must take the same
-precautions you would when using any Bitcoin wallet.  Please see the
+its wallet to store your XDN, but you must take the same
+precautions you would when using any XDN wallet.  Please see the
 [securing your wallet page](/en/secure-your-wallet) for more
 information.
 
-### Minimum Requirements
-
-Bitcoin Core full nodes have certain requirements. If you try running a
-node on weak hardware, it may work---but you'll likely spend more time
-dealing with issues. If you can meet the following requirements, you'll
-have an easy-to-use node.
-
-* Desktop or laptop hardware running recent versions of Windows, Mac OS
-  X, or Linux.
-
-* {{site.text.bitcoin_datadir_gb}} gigabytes of free disk space,
-  accessable at a minimum read/write speed of 100 MB/s.
-
-* 2 gigabytes of memory (RAM)
-
-* A broadband Internet connection with upload speeds of at least 400
-  kilobits (50 kilobytes) per second
-
-* An unmetered connection, a connection with high upload limits, or a
-  connection you regularly monitor to ensure it doesn't exceed its
-  upload limits. It's common for full nodes on high-speed connections to
-  use 200 gigabytes upload or more a month. Download usage is around 20
-  gigabytes a month, plus around an additional {{site.text.chain_gb}} gigabytes the first
-  time you start your node.
-
-* 6 hours a day that your full node can be left running. (You can do
-  other things with your computer while running a full node.)
-  More hours would be better, and best of all would be if you can run
-  your node continuously.
-
-    **Note:** many operating systems today (Windows, Mac, and Linux) enter a
-    low-power mode after the screensaver activates, slowing or halting
-    network traffic. This is often the default setting on laptops and on
-    all Mac OS X laptops and desktops. Check your screensaver settings
-    and disable automatic "sleep" or "suspend" options to ensure you
-    support the network whenever your computer is running.
-
-### Possible Problems
-
-{% include bitcoin-core/bitcoin-core-possible-problems.md %}
 
 ## Linux Instructions
 
-The following instructions describe installing Bitcoin Core on Linux
+The following instructions describe installing XDN Core on Linux
 systems.
 
 ### Ubuntu 16.10
 
-*Instructions for Bitcoin Core 0.14.2
+*Instructions for XDN 
 
 If you use Ubuntu Desktop, click the Ubuntu swirl icon to start the Dash and type "term" into the
 input box. Choose any one of the terminals listed:
